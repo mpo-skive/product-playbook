@@ -2,7 +2,7 @@
 
 An interactive playbook on product ways of working for the defence ecosystem, jointly developed by MINDEF and DSTA. It presents a single, coherent operating model for defining value, structuring teams, testing early, modernising legacy products and governing outcomes, with a Tools section grounded in DSTA's ProductOps toolchain.
 
-Co-authored by Alvin Loh (DSTA) and Tan Min Min (MINDEF / GovTech).
+Co-authored by Tan Min Min (MPO) and Alvin Loh (DSTA).
 
 Live at [defence-pp.vercel.app](https://defence-pp.vercel.app).
 
