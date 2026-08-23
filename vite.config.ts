@@ -3,7 +3,10 @@ import { fileURLToPath, URL } from "node:url";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
+const base = process.env.GITHUB_PAGES ? "/product-playbook/" : "/";
+
 export default defineConfig({
+  base,
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

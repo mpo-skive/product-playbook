@@ -53,6 +53,12 @@ To deploy from a machine without pushing, if you have access to the Vercel proje
 npx vercel --prod
 ```
 
+### GitHub Pages
+
+The same build also publishes to GitHub Pages at `https://mpo-skive.github.io/product-playbook/`, via `.github/workflows/deploy-pages.yml` on every push to `main`. The workflow enables Pages itself on first run, so nothing needs setting in the repository settings.
+
+Pages serves the site from a subpath, so the build sets `base` to `/product-playbook/` when `GITHUB_PAGES` is set. Vercel builds without that variable and stays at the root. Fonts live in `src/assets/fonts` rather than `public/` so Vite rewrites their URLs for both bases.
+
 ## Notes
 
 - British English throughout. No em dashes.
