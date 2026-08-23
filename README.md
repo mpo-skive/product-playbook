@@ -43,15 +43,15 @@ Outputs a static site to `dist/`, deployable to any static host. If you deploy u
 
 ## Deploy
 
-Hosted on Vercel as the project `dpp`. Production deploys currently run from the CLI, and the public hostname is a manual alias that has to be repointed at each new deployment:
+Hosted on Vercel as the project `dpp`, connected to this repository. A push to `main` builds and deploys to production automatically, and `defence-pp.vercel.app` follows it. Pushes to any other branch get their own preview URL.
+
+Build settings come from `vercel.json`, so no configuration is needed in the Vercel dashboard.
+
+To deploy from a machine without pushing, if you have access to the Vercel project:
 
 ```bash
-npm run build
 npx vercel --prod
-npx vercel alias set <deployment-url> defence-pp.vercel.app
 ```
-
-The alias step goes away once the Vercel project is connected to this repository, at which point a push to `main` deploys on its own.
 
 ## Notes
 
