@@ -4,6 +4,8 @@ An interactive playbook on product ways of working for the defence ecosystem, jo
 
 Co-authored by Alvin Loh (DSTA) and Tan Min Min (MINDEF / GovTech).
 
+Live at [defence-pp.vercel.app](https://defence-pp.vercel.app).
+
 ## What it covers
 
 A single spine across nine sections: Why product, the Three principles, Define real problems (METRIC), Structure the team (TEAM), Test early (TEST), Modernise legacy (IMPACT), Govern and review, Tools to use, and Get started, plus a Glossary.
@@ -38,6 +40,18 @@ npm run build
 ```
 
 Outputs a static site to `dist/`, deployable to any static host. If you deploy under a sub-path, set `base` in `vite.config.ts` accordingly.
+
+## Deploy
+
+Hosted on Vercel as the project `dpp`. Production deploys currently run from the CLI, and the public hostname is a manual alias that has to be repointed at each new deployment:
+
+```bash
+npm run build
+npx vercel --prod
+npx vercel alias set <deployment-url> defence-pp.vercel.app
+```
+
+The alias step goes away once the Vercel project is connected to this repository, at which point a push to `main` deploys on its own.
 
 ## Notes
 
