@@ -155,7 +155,7 @@ export default function Team(_: SectionProps) {
             {
               id: "programme",
               label: "Programme",
-              content: <LeadManager lead={["Programme Lead", "Owns coordination, funding and measurement across the product", "Sits in the Working Committee", "Clears the dependencies between squads"]} manager={["Programme Manager", "Owns the delivery machinery of one workstream", "Runs planning, reporting and procurement day to day", "Reports into the Programme Lead where one exists"]} managerScope="per workstream" />,
+              content: <LeadManager lead={["Programme Lead", "Sets up the workstreams that coordinate across teams", "Sits in the Working Committee", "Secures funding, headcount and vendor approvals"]} manager={["Programme Manager", "Owns the programme management of one workstream", "Procures tools and resources, and sets up the dashboards that monitor the metrics", "Reports into the Programme Lead where one exists"]} managerScope="per workstream" />,
             },
           ]}
         />
@@ -181,13 +181,15 @@ export default function Team(_: SectionProps) {
           </Disclosure>
           <Disclosure summary="Product, Tech, Design and Programme Leads" icon={<Layers3 className="h-4 w-4" />} meta="Working Committee">
             Peers in the Working Committee. Each brings the expertise of one craft to a decision and sets the standards
-            for it across squads: product, engineering, design, and the coordination, funding and measurement that
+            for it across squads: product, engineering, design, and the workstreams, funding and procurement that
             carry them. The Product Lead partners the OM in the two-in-a-box.
           </Disclosure>
           <Disclosure summary="Programme Management" icon={<Layers3 className="h-4 w-4" />} meta="Across squads">
-            Runs the programme: workstream coordination, funding, headcount and vendor approvals, procurement,
-            measurement dashboards, release coordination, user support and audit response. Led by a Programme Lead in
-            the Working Committee. Appears once a product is large enough to span several squads.
+            Runs the programme, in the terms the RACI uses: sets up workstreams to coordinate across teams, secures
+            funding, headcount and vendor approvals, procures tools and resources, coordinates with operations teams
+            for a smooth release, sets up the dashboards that monitor the metrics, supports end users to resolve
+            issues, and clears audits. Led by a Programme Lead in the Working Committee. Appears once a product is
+            large enough to span several squads.
           </Disclosure>
           <Disclosure summary="Squad" icon={<Layers3 className="h-4 w-4" />} meta="Delivery">
             Product Manager, Engineering Manager, Designer and software engineers. Each squad owns a specific

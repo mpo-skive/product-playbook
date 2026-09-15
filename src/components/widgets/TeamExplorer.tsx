@@ -16,7 +16,7 @@ const SCALES: { value: Scale; label: string }[] = [
 const NOTES: Record<Scale, string> = {
   poc: "One squad. The PM, Engineering Manager and Designer also act as the Product, Tech and Design Leads. Follow the principles, not the full form.",
   small: "One accountable OM in a two-in-a-box with a Product Lead, a lean Working Committee, and one to three squads of around eight people each.",
-  large: "Multiple sub-products, each with its own squads. Programme Management handles coordination, funding, procurement, standards and measurement across them.",
+  large: "Multiple sub-products, each with its own squads. A Programme Lead joins the Working Committee to set up the workstreams, funding and procurement that coordinate across them.",
   outsourced: "One in-house squad sets direction and standards, working alongside several vendor squads. Strategic product and tech capability stays in-house.",
 };
 
@@ -81,7 +81,7 @@ export function TeamExplorer() {
                     <RoleCard icon={UserCog} title="Tech Lead" sub="Architecture and standards" />
                     <RoleCard icon={UserCog} title="Design Lead" sub="Experience and research" />
                     {showProgramme && (
-                      <RoleCard icon={UserCog} title="Programme Lead" sub="Coordination and funding" />
+                      <RoleCard icon={UserCog} title="Programme Lead" sub="Workstreams, funding, procurement" />
                     )}
                   </div>
                   <p className="mt-2 text-center text-xs text-fg-subtle">
@@ -92,29 +92,6 @@ export function TeamExplorer() {
             </AnimatePresence>
           </div>
           <Connector />
-
-          {/* Programme Management */}
-          <AnimatePresence initial={false}>
-            {showProgramme && (
-              <motion.div
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="w-full overflow-hidden"
-              >
-                <div className="mx-auto max-w-lg rounded-lg border border-dashed border-border-strong bg-bg-subtle px-4 py-3 text-center">
-                  <p className="text-sm font-semibold text-fg">Programme Management</p>
-                  <p className="mt-0.5 text-xs text-fg-muted">
-                    The function the Programme Lead speaks for: workstream coordination, funding and procurement,
-                    standards and staffing, performance measurement and support across sub-products.
-                  </p>
-                </div>
-                <div className="mt-3 flex justify-center">
-                  <Connector />
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
 
           {/* Squads */}
           <div className="w-full">
