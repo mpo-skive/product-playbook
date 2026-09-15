@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { Shield, UserCog, Boxes, Users, Info } from "lucide-react";
 import { Segmented } from "@/components/interactive";
 import { cn } from "@/lib/cn";
+import { isStaticRender } from "@/lib/staticRender";
 
 type Scale = "poc" | "pov" | "fsd" | "outsourced";
 
@@ -139,6 +140,16 @@ export function TeamExplorer() {
           <Info className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
           <p className="text-sm text-fg-muted">{NOTES[scale]}</p>
         </motion.div>
+
+        {isStaticRender() && (
+          <div className="mt-3 space-y-2">
+            {SCALES.filter((s) => s.value !== scale).map((s) => (
+              <p key={s.value} className="text-sm text-fg-muted">
+                <strong className="text-fg">{s.label}.</strong> {NOTES[s.value]}
+              </p>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
