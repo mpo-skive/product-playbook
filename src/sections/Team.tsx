@@ -91,7 +91,7 @@ export default function Team(_: SectionProps) {
       <Block eyebrow="The structure" title="One structure that grows with the product">
         <Prose className="mb-5">
           <p>
-            The same shape serves a two-week proof of concept and a multi-squad programme. A Steering Committee
+            The same shape serves a two-week proof of concept and full scale development. A Steering Committee
             oversees the problem. Below it, the Working Committee runs the product: the OM and Product Lead sit inside
             it in a two-in-a-box, alongside the Leads. What changes with scale is how many tiers are present. Switch
             the scale below to see the structure expand and contract.
@@ -161,8 +161,8 @@ export default function Team(_: SectionProps) {
         />
         <Callout tone="info" title="A rule of thumb">
           <p>
-            A small product may have only Managers, who also carry the Lead responsibilities. As it grows into multiple
-            squads, Leads appear to hold the line on strategy and standards across them.
+            Early on a product may have only Managers, who also carry the Lead responsibilities. As it grows into
+            multiple squads, Leads appear to hold the line on strategy and standards across them.
           </p>
         </Callout>
       </Block>

@@ -41,7 +41,7 @@ export default function Tools({ navigate }: SectionProps) {
           </p>
           <p>
             ProductOps is an enterprise capability, not a role on your team. It is distinct from Programme Management,
-            which coordinates delivery within one large product. ProductOps is the reason a small team can move fast
+            which coordinates delivery within one product. ProductOps is the reason a small team can move fast
             without reinventing standards, tooling or assurance each time.
           </p>
         </Prose>
