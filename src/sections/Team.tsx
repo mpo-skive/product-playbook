@@ -185,11 +185,10 @@ export default function Team(_: SectionProps) {
             carry them. The Product Lead partners the OM in the two-in-a-box.
           </Disclosure>
           <Disclosure summary="Programme Management" icon={<Layers3 className="h-4 w-4" />} meta="Across squads">
-            Runs the programme, in the terms the RACI uses: sets up workstreams to coordinate across teams, secures
-            funding, headcount and vendor approvals, procures tools and resources, coordinates with operations teams
-            for a smooth release, sets up the dashboards that monitor the metrics, supports end users to resolve
-            issues, and clears audits. Led by a Programme Lead in the Working Committee. Appears once a product is
-            large enough to span several squads.
+            Runs the programme: sets up workstreams to coordinate across teams, secures funding, headcount and vendor
+            approvals, procures tools and resources, coordinates with operations teams for a smooth release, sets up
+            the dashboards that monitor the metrics, supports end users to resolve issues, and clears audits. Led by a
+            Programme Lead in the Working Committee. Appears once a product is large enough to span several squads.
           </Disclosure>
           <Disclosure summary="Squad" icon={<Layers3 className="h-4 w-4" />} meta="Delivery">
             Product Manager, Engineering Manager, Designer and software engineers. Each squad owns a specific
