@@ -17,13 +17,13 @@ const NOTES: Record<Scale, string> = {
   poc: "Proving it can be built. One squad. The PM, Engineering Manager and Designer also act as the Product, Tech and Design Leads. Follow the principles, not the full form.",
   pov: "Proving the metric can move. One accountable OM in a two-in-a-box with a Product Lead, a lean Working Committee, and one to three squads of around eight people each.",
   fsd: "Full scale development, once the value is proven. Multiple sub-products, each with its own squads. A Programme Lead joins the Working Committee to set up the workstreams, funding and procurement that coordinate across them.",
-  outsourced: "One in-house squad sets direction and standards, working alongside several vendor squads. Strategic product and tech capability stays in-house.",
+  outsourced: "One in-house squad sets direction and standards, working alongside several vendor squads. Strategic product and tech capability stays in-house, and a Programme Lead runs the vendor approvals and procurement the squads depend on.",
 };
 
 export function TeamExplorer() {
   const [scale, setScale] = useState<Scale>("pov");
   const showLeads = scale !== "poc";
-  const showProgramme = scale === "fsd";
+  const showProgramme = scale === "fsd" || scale === "outsourced";
   const squadCount = scale === "poc" ? 1 : scale === "pov" ? 2 : scale === "fsd" ? 4 : 3;
 
   return (
