@@ -9,10 +9,13 @@
  * when it mounts, and the inline theme script hides the block before paint, so
  * a browser never shows it.
  */
+import { setStaticRender } from "@/lib/staticRender";
 import { StoreProvider } from "@/lib/store";
 import { SECTIONS } from "@/content/meta";
 import { SECTION_COMPONENTS } from "@/sections";
 import type { SectionId } from "@/content/meta";
+
+setStaticRender(true);
 
 const noop = () => {};
 

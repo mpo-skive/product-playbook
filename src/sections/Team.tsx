@@ -129,10 +129,10 @@ export default function Team(_: SectionProps) {
       <Block eyebrow="Lead or Manager" title="The same craft at different seniority">
         <Prose className="mb-5">
           <p>
-            Product Lead and Product Manager are not different jobs. They are the same craft at different seniority. A
-            Lead sits in the Working Committee, sets direction and standards across squads, and makes the hard trade-offs.
-            A Manager runs delivery inside a squad. Whether you need both tiers depends on the product's scale and
-            complexity.
+            Lead and Manager are not different jobs. They are the same craft at different seniority, and this holds for
+            every craft in the team. A Lead sits in the Working Committee, sets direction and standards across squads,
+            and makes the hard trade-offs. A Manager runs delivery inside a squad. Whether you need both tiers depends
+            on the product's scale and complexity.
           </p>
         </Prose>
         <Tabs
@@ -151,6 +151,11 @@ export default function Team(_: SectionProps) {
               id: "design",
               label: "Design",
               content: <LeadManager lead={["Design Lead", "Owns the experience and design standards across the product", "Sits in the Working Committee", "Leads research that validates the problem"]} manager={["Designer", "Owns the design work of one squad", "Runs research and design day to day", "Reports into the Design Lead where one exists"]} />,
+            },
+            {
+              id: "programme",
+              label: "Programme",
+              content: <LeadManager lead={["Programme Lead", "Owns coordination, funding and measurement across the product", "Sits in the Working Committee", "Clears the dependencies between squads"]} manager={["Programme Manager", "Owns the delivery machinery of one workstream", "Runs planning, reporting and procurement day to day", "Reports into the Programme Lead where one exists"]} managerScope="per workstream" />,
             },
           ]}
         />
@@ -174,14 +179,15 @@ export default function Team(_: SectionProps) {
             with the Product Lead. Owns the ops and tech levers. Makes trade-off decisions, defines
             the problem and metric, and directs the product at least fortnightly.
           </Disclosure>
-          <Disclosure summary="Product, Tech and Design Leads" icon={<Layers3 className="h-4 w-4" />} meta="Working Committee">
-            Provide the product, engineering and design expertise for decisions. Set and enforce standards across
-            squads. The Product Lead partners the OM in the two-in-a-box.
+          <Disclosure summary="Product, Tech, Design and Programme Leads" icon={<Layers3 className="h-4 w-4" />} meta="Working Committee">
+            Peers in the Working Committee. Each brings the expertise of one craft to a decision and sets the standards
+            for it across squads: product, engineering, design, and the coordination, funding and measurement that
+            carry them. The Product Lead partners the OM in the two-in-a-box.
           </Disclosure>
           <Disclosure summary="Programme Management" icon={<Layers3 className="h-4 w-4" />} meta="Across squads">
-            Runs the machinery that lets the squads build: workstream coordination, funding, headcount and vendor
-            approvals, procurement, measurement dashboards, release coordination, user support and audit response.
-            Appears once a product is large enough to span several squads. It does not own the outcome; the OM does.
+            Runs the programme: workstream coordination, funding, headcount and vendor approvals, procurement,
+            measurement dashboards, release coordination, user support and audit response. Led by a Programme Lead in
+            the Working Committee. Appears once a product is large enough to span several squads.
           </Disclosure>
           <Disclosure summary="Squad" icon={<Layers3 className="h-4 w-4" />} meta="Delivery">
             Product Manager, Engineering Manager, Designer and software engineers. Each squad owns a specific
@@ -271,7 +277,7 @@ export default function Team(_: SectionProps) {
   );
 }
 
-function LeadManager({ lead, manager }: { lead: string[]; manager: string[] }) {
+function LeadManager({ lead, manager, managerScope = "in-squad" }: { lead: string[]; manager: string[]; managerScope?: string }) {
   return (
     <div className="grid gap-3 sm:grid-cols-2">
       {[
@@ -279,7 +285,7 @@ function LeadManager({ lead, manager }: { lead: string[]; manager: string[] }) {
         { role: manager, tag: "Manager", tone: "neutral" as const },
       ].map(({ role, tag, tone }) => (
         <Card key={tag} className={cn("p-5", tone === "accent" && "border-l-4 border-l-accent")}>
-          <Badge tone={tone === "accent" ? "accent" : "outline"}>{tag === "Lead" ? "Lead · more senior" : "Manager · in-squad"}</Badge>
+          <Badge tone={tone === "accent" ? "accent" : "outline"}>{tag === "Lead" ? "Lead · more senior" : `Manager · ${managerScope}`}</Badge>
           <p className="mt-2.5 text-base font-semibold text-fg">{role[0]}</p>
           <ul className="mt-2 space-y-1.5 text-sm text-fg-muted">
             {role.slice(1).map((r) => (

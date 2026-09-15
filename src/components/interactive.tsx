@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState, type ReactNode } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/cn";
+import { isStaticRender } from "@/lib/staticRender";
 
 /* ------------------------------ Scroll reveal -----------------------------
  * Uses a manual IntersectionObserver. Its initial callback reliably reports
@@ -77,8 +78,14 @@ export function Disclosure({
   children: ReactNode;
   icon?: ReactNode;
 }) {
-  const [open, setOpen] = useState(defaultOpen);
+  const staticMode = isStaticRender();
+  const [open, setOpen] = useState(defaultOpen || staticMode);
   const id = useId();
+
+  const body = (
+    <div className="border-t border-border px-4 py-4 text-sm leading-relaxed text-fg-muted sm:px-5">{children}</div>
+  );
+
   return (
     <div className="overflow-hidden rounded-lg border border-border bg-surface">
       <button
@@ -95,22 +102,24 @@ export function Disclosure({
           className={cn("h-4 w-4 shrink-0 text-fg-subtle transition-transform duration-200", open && "rotate-180")}
         />
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            id={id}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="border-t border-border px-4 py-4 text-sm leading-relaxed text-fg-muted sm:px-5">
-              {children}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {staticMode ? (
+        <div id={id}>{body}</div>
+      ) : (
+        <AnimatePresence initial={false}>
+          {open && (
+            <motion.div
+              id={id}
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              className="overflow-hidden"
+            >
+              {body}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
     </div>
   );
 }
@@ -125,6 +134,20 @@ export function Tabs({
 }) {
   const [active, setActive] = useState(tabs[0]?.id);
   const current = tabs.find((t) => t.id === active) ?? tabs[0];
+
+  if (isStaticRender()) {
+    return (
+      <div className={className}>
+        {tabs.map((t) => (
+          <div key={t.id} className="mt-5">
+            <p className="mb-2 text-sm font-semibold text-fg">{t.label}</p>
+            {t.content}
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   return (
     <div className={className}>
       <div

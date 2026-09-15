@@ -76,10 +76,13 @@ export function TeamExplorer() {
                   <p className="mb-2 mt-4 text-center text-[0.65rem] font-semibold uppercase tracking-wider text-fg-subtle">
                     The Leads
                   </p>
-                  <div className="grid gap-2 sm:grid-cols-3">
+                  <div className={cn("grid gap-2", showProgramme ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-3")}>
                     <RoleCard icon={UserCog} title="Product Lead" sub="Vision, strategy, roadmap" />
                     <RoleCard icon={UserCog} title="Tech Lead" sub="Architecture and standards" />
                     <RoleCard icon={UserCog} title="Design Lead" sub="Experience and research" />
+                    {showProgramme && (
+                      <RoleCard icon={UserCog} title="Programme Lead" sub="Coordination and funding" />
+                    )}
                   </div>
                   <p className="mt-2 text-center text-xs text-fg-subtle">
                     One member per lever needed to move the problem. The OM adds any operational leads required.
@@ -102,8 +105,8 @@ export function TeamExplorer() {
                 <div className="mx-auto max-w-lg rounded-lg border border-dashed border-border-strong bg-bg-subtle px-4 py-3 text-center">
                   <p className="text-sm font-semibold text-fg">Programme Management</p>
                   <p className="mt-0.5 text-xs text-fg-muted">
-                    Workstream coordination, funding and procurement, standards and staffing, performance measurement
-                    and support across sub-products.
+                    The function the Programme Lead speaks for: workstream coordination, funding and procurement,
+                    standards and staffing, performance measurement and support across sub-products.
                   </p>
                 </div>
                 <div className="mt-3 flex justify-center">
