@@ -162,8 +162,7 @@ export default function Team(_: SectionProps) {
         <Callout tone="info" title="A rule of thumb">
           <p>
             A small product may have only Managers, who also carry the Lead responsibilities. As it grows into multiple
-            squads, Leads appear to hold the line on strategy and standards across them. Add the tier when the span of
-            coordination, not the headcount alone, demands it.
+            squads, Leads appear to hold the line on strategy and standards across them.
           </p>
         </Callout>
       </Block>
