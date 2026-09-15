@@ -41,6 +41,14 @@ npm run build
 
 Outputs a static site to `dist/`, deployable to any static host. If you deploy under a sub-path, set `base` in `vite.config.ts` accordingly.
 
+### Prerendering
+
+The app is client-rendered, so on its own the served `index.html` carries no text: crawlers, link unfurlers and assistants asked to read the URL saw an empty page. `scripts/prerender.mjs` runs after `vite build`, renders every section with `react-dom/server` and injects the result inside `#root`. The document therefore ships with the full playbook as HTML.
+
+A browser never sees that copy. The inline script in `index.html` adds a `js` class to `<html>` before paint, which hides the block, and React clears `#root` when it mounts. With JavaScript off, the static copy is the page.
+
+Run it on its own against an existing `dist/` with `npm run prerender`.
+
 ## Deploy
 
 Hosted on Vercel as the project `dpp`, connected to this repository. A push to `main` builds and deploys to production automatically, and `defence-pp.vercel.app` follows it. Pushes to any other branch get their own preview URL.

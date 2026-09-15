@@ -16,7 +16,7 @@ const SCALES: { value: Scale; label: string }[] = [
 const NOTES: Record<Scale, string> = {
   poc: "One squad. The PM, Engineering Manager and Designer also act as the Product, Tech and Design Leads. Follow the principles, not the full form.",
   small: "One accountable OM in a two-in-a-box with a Product Lead, a lean Working Committee, and one to three squads of around eight people each.",
-  large: "Multiple sub-products, each with its own squads. A programme office handles strategy, standards, measurement and growth across them.",
+  large: "Multiple sub-products, each with its own squads. Programme Management handles coordination, funding, procurement, standards and measurement across them.",
   outsourced: "One in-house squad sets direction and standards, working alongside several vendor squads. Strategic product and tech capability stays in-house.",
 };
 
@@ -90,7 +90,7 @@ export function TeamExplorer() {
           </div>
           <Connector />
 
-          {/* Programme office */}
+          {/* Programme Management */}
           <AnimatePresence initial={false}>
             {showProgramme && (
               <motion.div
@@ -100,9 +100,10 @@ export function TeamExplorer() {
                 className="w-full overflow-hidden"
               >
                 <div className="mx-auto max-w-lg rounded-lg border border-dashed border-border-strong bg-bg-subtle px-4 py-3 text-center">
-                  <p className="text-sm font-semibold text-fg">Programme office</p>
+                  <p className="text-sm font-semibold text-fg">Programme Management</p>
                   <p className="mt-0.5 text-xs text-fg-muted">
-                    Strategy, standards and staffing, performance measurement, and future growth across sub-products.
+                    Workstream coordination, funding and procurement, standards and staffing, performance measurement
+                    and support across sub-products.
                   </p>
                 </div>
                 <div className="mt-3 flex justify-center">
@@ -141,8 +142,7 @@ export function TeamExplorer() {
                   <p className="text-xs leading-relaxed text-fg-muted">
                     {scale === "poc"
                       ? "PM, Engineering Manager, Designer, engineers. Also the Leads."
-                      : "Product Manager, Engineering Manager, Designer, software engineers" +
-                        (scale === "large" ? ", and Product Ops." : ".")}
+                      : "Product Manager, Engineering Manager, Designer, software engineers."}
                   </p>
                 </motion.div>
               ))}

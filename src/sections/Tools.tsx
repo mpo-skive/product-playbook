@@ -40,9 +40,9 @@ export default function Tools({ navigate }: SectionProps) {
             and deployed. ProductOps is the upstream layer that decides what the other two operate on.
           </p>
           <p>
-            This is the enterprise-level Product Ops referred to earlier, distinct from the squad-level Product Ops
-            role. It is the reason a small team can move fast without reinventing standards, tooling or assurance each
-            time.
+            ProductOps is an enterprise capability, not a role on your team. It is distinct from Programme Management,
+            which coordinates delivery within one large product. ProductOps is the reason a small team can move fast
+            without reinventing standards, tooling or assurance each time.
           </p>
         </Prose>
         <div className="mt-4 grid gap-2 sm:grid-cols-3">

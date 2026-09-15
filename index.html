@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content="The Defence Product Playbook. A joint MINDEF and DSTA guide to product ways of working: defining value, structuring teams, testing early, modernising legacy, governing outcomes and the tools that enable them." />
     <meta name="color-scheme" content="light dark" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="The Defence Product Playbook" />
+    <meta property="og:site_name" content="MINDEF × DSTA" />
+    <meta property="og:description" content="A joint MINDEF and DSTA guide to product ways of working: defining value, structuring teams, testing early, modernising legacy, governing outcomes and the tools that enable them." />
+    <meta name="twitter:card" content="summary" />
+    <style>
+      /* The build injects a static copy of the playbook into #root so that
+         fetchers which do not run JavaScript can read the site. Hidden the
+         moment we know scripts are running. */
+      html.js #dpp-static { display: none; }
+    </style>
     <title>The Defence Product Playbook</title>
     <script>
       // Apply persisted theme before paint to prevent a flash of the wrong mode.
@@ -16,10 +27,13 @@
             mode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
           }
           var root = document.documentElement;
+          root.classList.add("js");
           root.setAttribute("data-zone", "enterprise");
           root.setAttribute("data-mode", mode);
           root.style.colorScheme = mode;
-        } catch (e) {}
+        } catch (e) {
+          document.documentElement.classList.add("js");
+        }
       })();
     </script>
   </head>

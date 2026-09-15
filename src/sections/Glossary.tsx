@@ -22,7 +22,7 @@ const TERMS: [string, string][] = [
   ["PRIZM", "DSTA's AI-ingestible design system. This playbook is built on it."],
   ["Product Lead", "The senior product role in the Working Committee; partners the OM two-in-a-box."],
   ["Product Manager", "The product role running delivery inside a squad."],
-  ["Product Ops (product level)", "A delivery-support role inside larger squads."],
+  ["Programme Management", "The function that coordinates delivery across the squads of a large product: workstreams, funding, procurement, measurement and support."],
   ["ProductOps Pipeline (enterprise)", "DSTA's organisation-wide product capability, standards and toolchain."],
   ["RACI", "Who is Responsible, Accountable, Consulted and Informed for each activity in a product team."],
   ["SFR", "The prioritisation test for problem statements: Severity, Frequency, Reach, each scored low, medium or high."],

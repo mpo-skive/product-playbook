@@ -1,12 +1,12 @@
 import { Fragment } from "react";
-import { Crosshair, Scale, Boxes, Building2, Layers3, UserCheck } from "lucide-react";
+import { Crosshair, Scale, Layers3, UserCheck } from "lucide-react";
 import { Callout, Prose, Card, Badge } from "@/components/ui";
 import { Reveal, Disclosure, Tabs } from "@/components/interactive";
 import { TeamExplorer } from "@/components/widgets/TeamExplorer";
 import { SectionHead, Block, type SectionProps } from "./_shell";
 import { cn } from "@/lib/cn";
 
-const RACI_COLS = ["OM", "Product Manager", "Design", "Engineering", "Product Ops"];
+const RACI_COLS = ["OM", "Product Manager", "Design", "Engineering", "Programme Management"];
 
 const RACI: { phase: string; rows: [string, string, string, string, string, string][] }[] = [
   {
@@ -163,34 +163,6 @@ export default function Team(_: SectionProps) {
         </Callout>
       </Block>
 
-      <Block eyebrow="Product Ops" title="A squad role, and an enterprise capability">
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Card className="p-5" accent>
-            <div className="mb-2.5 flex items-center gap-2">
-              <Boxes className="h-4.5 w-4.5 text-accent" />
-              <Badge tone="accent">Product level</Badge>
-            </div>
-            <p className="text-sm font-semibold text-fg">Product Ops in the squad</p>
-            <p className="mt-1.5 text-sm leading-relaxed text-fg-muted">
-              A delivery-support role inside larger squads. Keeps the product's rituals, data, tooling and reporting
-              running so the PM, EM and Designer can focus on the problem. Appears only when a product is big enough to
-              need it.
-            </p>
-          </Card>
-          <Card className="p-5">
-            <div className="mb-2.5 flex items-center gap-2">
-              <Building2 className="h-4.5 w-4.5 text-fg-muted" />
-              <Badge tone="outline">Enterprise level</Badge>
-            </div>
-            <p className="text-sm font-semibold text-fg">The DSTA ProductOps Pipeline</p>
-            <p className="mt-1.5 text-sm leading-relaxed text-fg-muted">
-              An organisation-wide capability that sets the standards, toolchain and quality model every product team
-              draws on. You will meet it in the Tools section.
-            </p>
-          </Card>
-        </div>
-      </Block>
-
       <Block eyebrow="Reference" title="Roles at a glance">
         <div className="space-y-3">
           <Disclosure summary="Steering Committee" icon={<Layers3 className="h-4 w-4" />} meta="Oversight">
@@ -206,9 +178,14 @@ export default function Team(_: SectionProps) {
             Provide the product, engineering and design expertise for decisions. Set and enforce standards across
             squads. The Product Lead partners the OM in the two-in-a-box.
           </Disclosure>
+          <Disclosure summary="Programme Management" icon={<Layers3 className="h-4 w-4" />} meta="Across squads">
+            Runs the machinery that lets the squads build: workstream coordination, funding, headcount and vendor
+            approvals, procurement, measurement dashboards, release coordination, user support and audit response.
+            Appears once a product is large enough to span several squads. It does not own the outcome; the OM does.
+          </Disclosure>
           <Disclosure summary="Squad" icon={<Layers3 className="h-4 w-4" />} meta="Delivery">
-            Product Manager, Engineering Manager, Designer and software engineers, plus Product Ops in larger squads.
-            Each squad owns a specific sub-problem. May be in-house or vendor-staffed.
+            Product Manager, Engineering Manager, Designer and software engineers. Each squad owns a specific
+            sub-problem. May be in-house or vendor-staffed.
           </Disclosure>
         </div>
       </Block>
@@ -228,7 +205,7 @@ export default function Team(_: SectionProps) {
           <span><span className="font-medium">I</span> informed after</span>
         </div>
         <div className="overflow-x-auto rounded-xl border border-border">
-          <table className="w-full min-w-[720px] text-left text-sm">
+          <table className="w-full min-w-[820px] text-left text-sm">
             <thead className="bg-bg-subtle text-xs uppercase tracking-wider text-fg-subtle">
               <tr>
                 <th className="px-4 py-3 font-semibold">Activity</th>
