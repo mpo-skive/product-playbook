@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { Shield, UserCog, Boxes, Users, Info } from "lucide-react";
 import { Segmented } from "@/components/interactive";
 import { cn } from "@/lib/cn";
@@ -23,7 +23,6 @@ const NOTES: Record<Scale, string> = {
 
 export function TeamExplorer() {
   const [scale, setScale] = useState<Scale>("pov");
-  const showProgramme = scale === "fsd" || scale === "outsourced";
   const squadCount = scale === "poc" ? 1 : scale === "pov" ? 2 : scale === "fsd" ? 4 : 3;
 
   return (
@@ -64,21 +63,11 @@ export function TeamExplorer() {
             <p className="mb-2 mt-4 text-center text-[0.65rem] font-semibold uppercase tracking-wider text-fg-subtle">
               The Leads
             </p>
-            <div className={cn("grid gap-2", showProgramme ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-3")}>
+            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
               <RoleCard icon={UserCog} title="Product Lead" sub="Vision, strategy, roadmap" />
               <RoleCard icon={UserCog} title="Tech Lead" sub="Architecture and standards" />
               <RoleCard icon={UserCog} title="UX Lead" sub="Experience and research" />
-              <AnimatePresence initial={false}>
-                {showProgramme && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.96 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.96 }}
-                  >
-                    <RoleCard icon={UserCog} title="Programme Lead" sub="Workstreams, funding, procurement" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <RoleCard icon={UserCog} title="Programme Lead" sub="Workstreams, funding, procurement" />
             </div>
           </div>
           <Connector />
