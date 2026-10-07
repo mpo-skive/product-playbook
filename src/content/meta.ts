@@ -27,7 +27,7 @@ export type SectionId =
   | "glossary";
 
 export type PersonaId = "leader" | "om" | "practitioner";
-export type Craft = "product" | "engineering" | "design";
+export type Craft = "product" | "engineering" | "ux";
 
 export interface SectionMeta {
   id: SectionId;
@@ -183,8 +183,8 @@ export const PERSONAS: PersonaMeta[] = [
   },
   {
     id: "practitioner",
-    label: "Product, Engineering or Design",
-    role: "PM, Engineering Manager, UX or a Lead",
+    label: "Product, Engineering or UX",
+    role: "Product Manager, UX, software engineer or a Lead",
     summary:
       "You do the work inside the squad. You need the three principles, how value is measured, how to test, and the toolchain that carries it.",
     path: ["why", "principles", "problems", "test", "tools", "team", "modernise", "govern", "start"],

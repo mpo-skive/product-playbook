@@ -14,7 +14,7 @@ Five live tools: a 4C problem-statement scorer, a metric ladder, a Value-Cost Ra
 
 ## Key features
 
-- **Guided journeys.** Readers pick a profile (Organisation Leader, Ops Manager, or Product/Engineering/Design practitioner) and the playbook reorders around a recommended path, marking core sections. Nothing is hidden. The choice persists.
+- **Guided journeys.** Readers pick a profile (Organisation Leader, Ops Manager, or Product/Engineering/UX practitioner) and the playbook reorders around a recommended path, marking core sections. Nothing is hidden. The choice persists.
 - **Reading times and progress.** Every section shows minutes to read and remembers what has been read.
 - **Progressive disclosure.** Detail sits behind disclosures, tabs and interactive widgets.
 - **Light and dark**, built on the PRIZM 4.0 Enterprise design system with its exact tokens and self-hosted fonts.

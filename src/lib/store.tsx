@@ -45,7 +45,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     read(P_KEY, (raw) => raw as PersonaId, null as PersonaId | null),
   );
   const [craft, setCraftState] = useState<Craft | null>(() =>
-    read(C_KEY, (raw) => raw as Craft, null as Craft | null),
+    read(C_KEY, (raw) => (raw === "design" ? "ux" : (raw as Craft)), null as Craft | null),
   );
   const [visited, setVisited] = useState<Set<SectionId>>(storedVisited);
 

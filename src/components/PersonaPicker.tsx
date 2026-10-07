@@ -8,7 +8,7 @@ import { cn } from "@/lib/cn";
 const CRAFTS: { id: Craft; label: string }[] = [
   { id: "product", label: "Product" },
   { id: "engineering", label: "Engineering" },
-  { id: "design", label: "Design" },
+  { id: "ux", label: "UX" },
 ];
 
 export function PersonaPicker({

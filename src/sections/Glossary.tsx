@@ -28,7 +28,7 @@ const TERMS: [string, string, string?][] = [
   ["Product Manager", "The product role running delivery inside a squad."],
   ["Programme Lead", "The senior programme role in the Working Committee; a peer of the Product, Tech and UX Leads."],
   ["Programme Management", "The function that coordinates delivery across the squads of a product: workstreams, funding, procurement, dashboards and user support."],
-  ["Programme Manager", "The programme role running procurement, dashboards and user support for one workstream."],
+  ["Programme Manager", "The programme role running procurement, dashboards and user support inside a squad."],
   ["ProductOps Pipeline (enterprise)", "DSTA's organisation-wide product capability, standards and toolchain."],
   ["Proof of concept (PoC)", "The first stage: proving the thing can be built and put in front of real users."],
   ["Proof of value (PoV)", "The second stage: proving the value metric can actually move."],
