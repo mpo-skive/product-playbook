@@ -34,7 +34,7 @@ const TERMS: [string, string, string?][] = [
   ["Proof of value (PoV)", "The second stage: proving the value metric can actually move."],
   ["RACI", "Who is Responsible, Accountable, Consulted and Informed for each activity in a product team."],
   ["SFR", "The prioritisation test for problem statements: Severity, Frequency, Reach, each scored low, medium or high."],
-  ["Squad", "The delivery team: PM, Engineering Manager, UX and engineers."],
+  ["Squad", "The delivery team: Product Manager, UX, software engineers and a Programme Manager."],
   ["SMART", "The test of a value metric: specific, measurable, achievable, relevant, time-bound."],
   ["Steering Committee", "The oversight body that holds the OM accountable, vests the levers and clears blockers."],
   ["Strangler fig", "A gradual modernisation strategy that replaces a system piece by piece."],

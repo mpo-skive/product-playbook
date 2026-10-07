@@ -119,7 +119,7 @@ export default function Team(_: SectionProps) {
             Programme Lead in the Working Committee.
           </Disclosure>
           <Disclosure summary="Squad" icon={<Layers3 className="h-4 w-4" />} meta="Delivery">
-            Product Manager, Engineering Manager, UX and software engineers. Each squad owns a specific
+            Product Manager, UX, software engineers and a Programme Manager. Each squad owns a specific
             sub-problem. May be in-house or vendor-staffed. The Product Manager owns one squad's backlog; the Product
             Lead owns the roadmap across the product.
           </Disclosure>
