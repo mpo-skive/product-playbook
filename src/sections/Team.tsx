@@ -78,45 +78,11 @@ export default function Team(_: SectionProps) {
             The OM is the operational owner: the equivalent of a Product Owner, accountable for the outcome.
           </p>
           <p>
-            The OM sits <strong>inside the Working Committee</strong> with the Leads, not in a tier of its own above
-            them. The OM brings deep operational judgement and owns the levers. Each Lead brings the judgement of one
-            craft: the Product Lead reads the codebase, weighs system design trade-offs, and turns intent into a
-            roadmap. The OM decides.
+            The OM sits <strong>inside the Working Committee</strong> with the Leads. The OM brings deep operational
+            judgement.
           </p>
         </Prose>
       </Block>
-
-      <Block eyebrow="Reference" title="Roles at a glance">
-        <div className="space-y-3">
-          <Disclosure summary="Steering Committee" icon={<Layers3 className="h-4 w-4" />} meta="Oversight">
-            Holds the OM accountable for solving the problem. Ensures the environment lets them, vesting levers and
-            clearing blockers. Makes trade-offs where other priorities have dependencies.
-          </Disclosure>
-          <Disclosure summary="Ops Manager (OM)" icon={<Layers3 className="h-4 w-4" />} meta="Working Committee">
-            Accountable to the Steering Committee for the outcome. Sits in the Working Committee with the Leads.
-            Owns the ops and tech levers. Makes trade-off decisions, defines the problem and metric, and directs the
-            product at least fortnightly.
-          </Disclosure>
-          <Disclosure summary="Product, Tech, UX and Programme Leads" icon={<Layers3 className="h-4 w-4" />} meta="Working Committee">
-            Peers in the Working Committee. Each brings the expertise of one craft to a decision and sets the standards
-            for it across squads: product, engineering, UX, and the workstreams, funding and procurement that
-            carry them. Each Lead is the senior form of a craft found in the squads: they set direction and standards
-            across squads, while their squad counterparts run delivery within one.
-          </Disclosure>
-          <Disclosure summary="Programme Management" icon={<Layers3 className="h-4 w-4" />} meta="Across squads">
-            Runs the programme: sets up workstreams to coordinate across teams, secures funding, headcount and vendor
-            approvals, procures tools and resources, coordinates with operations teams for a smooth release, sets up
-            the dashboards that monitor the metrics, supports end users to resolve issues, and clears audits. Led by a
-            Programme Lead in the Working Committee.
-          </Disclosure>
-          <Disclosure summary="Squad" icon={<Layers3 className="h-4 w-4" />} meta="Delivery">
-            Product Manager, UX, software engineers and a Programme Manager. Each squad owns a specific
-            sub-problem. May be in-house or vendor-staffed. The Product Manager owns one squad's backlog; the Product
-            Lead owns the roadmap across the product.
-          </Disclosure>
-        </div>
-      </Block>
-
 
       <Block eyebrow="In DSTA" title="UX practice: UX Architects and UX Designers" id={UX_ANCHOR}>
         <UXPractice />
@@ -210,14 +176,14 @@ const UX_ROLES: { title: string; label: string; lead: string; points: string[]; 
   {
     title: "UX Designer (UXD)",
     label: "Individual apps",
-    lead: "Needed on every product. Sits in the squad that builds the app, from the first sketch to what ships, and stays with it as it changes.",
+    lead: "Needed on every product.",
     points: [
       "Designs one or more apps and makes each easy to use: its flows, screens and interactions",
-      "Researches with users to understand the task, and tests the design with them before it is built",
-      "Works with the squad's engineers as each app is built, so what ships is what was tested",
-      "Applies the shared PRIZM components and patterns, and keeps the app usable for everyone who has to use it",
+      "Researches with users to understand the task, and tests the design with them before full scale development",
+      "Works with the squad's engineers as each app is built to ensure that shipped product matches intended design",
+      "Applies the shared PRIZM components and patterns, and ensures that the app meets its intended purpose and is easy to use for users",
     ],
-    measures: "The app: whether users complete its critical tasks, how long it takes them, and where they fail or ask for help.",
+    measures: "The app: whether users complete its critical tasks, how long it takes them, and where they fail or ask for help. The UXD runs a System Usability Scale (SUS) score on each app after release, with Programme Management setting up the collection in DASH.",
   },
   {
     title: "UX Architect (UXA)",
@@ -229,7 +195,7 @@ const UX_ROLES: { title: string; label: string; lead: string; points: string[]; 
       "Sets the patterns every app shares, such as alerts, status updates, search, forms, and using the same word for the same thing",
       "Works with the Tech Lead on build decisions users will feel: signing in once across apps, entering details once and reusing them, receiving notifications in one place and one format, and using shared PRIZM components",
     ],
-    measures: "The journey across apps: whether it completes end to end, where users drop out at the hand-offs, and how often they sign in again or re-enter what the system already holds.",
+    measures: "The journey across apps: whether it completes end to end, where users drop out at the hand-offs, and how often they sign in again or re-enter what the system already holds. The UXA runs a Customer Satisfaction (CSAT) score at the end of the journey rather than per app, with Programme Management setting up the collection in DASH.",
   },
 ];
 

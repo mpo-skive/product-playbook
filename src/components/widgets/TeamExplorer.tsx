@@ -15,8 +15,8 @@ const SCALES: { value: Scale; label: string }[] = [
 ];
 
 const NOTES: Record<Scale, string> = {
-  poc: "Proving it can be built. One squad. The squad's product, engineering and UX members also act as the Product, Tech and UX Leads.",
-  pov: "Proving the metric can move.",
+  poc: "Starts off with one squad to prove that the product is technically feasible. The squad's product, UX and engineering members also act as the Product, UX and Tech Leads.",
+  pov: "Proving the metric can move. Prioritise the few features the MVP needs to shift it, then add a squad for each so they are built in parallel rather than queued behind one another.",
   fsd: "Full scale development, once the value is proven. Multiple sub-products, each with its own squads.",
   outsourced: "One in-house squad sets direction and standards, working alongside several vendor squads.",
 };
@@ -65,8 +65,8 @@ export function TeamExplorer() {
             </p>
             <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
               <RoleCard icon={UserCog} title="Product Lead" sub="Vision, strategy, roadmap" />
-              <RoleCard icon={UserCog} title="Tech Lead" sub="Architecture and standards" />
               <RoleCard icon={UserCog} title="UX Lead" sub="Experience and research" />
+              <RoleCard icon={UserCog} title="Tech Lead" sub="Architecture and standards" />
               <RoleCard icon={UserCog} title="Programme Lead" sub="Workstreams, funding, procurement" />
             </div>
           </div>
