@@ -67,14 +67,6 @@ export default function Team(_: SectionProps) {
       </SectionHead>
 
       <Block eyebrow="The structure" title="One structure that grows with the product">
-        <Prose className="mb-5">
-          <p>
-            The same shape serves a two-week proof of concept and full scale development. A Steering Committee
-            oversees the problem. Below it, the Working Committee runs the product: the OM and Product Lead sit inside
-            it in a two-in-a-box, alongside the Leads. What changes with scale is how many tiers are present. Switch
-            the scale below to see the structure expand and contract.
-          </p>
-        </Prose>
         <Reveal>
           <TeamExplorer />
         </Reveal>
