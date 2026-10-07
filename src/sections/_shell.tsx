@@ -39,14 +39,16 @@ export function SectionHead({ id, children }: { id: SID; children?: ReactNode })
 export function Block({
   eyebrow,
   title,
+  id,
   children,
 }: {
   eyebrow?: string;
   title?: string;
+  id?: string;
   children: ReactNode;
 }) {
   return (
-    <section className="mt-12">
+    <section id={id} className="mt-12 scroll-mt-24">
       {eyebrow && <p className="mb-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-accent">{eyebrow}</p>}
       {title && <h2 className="mb-4 text-2xl font-semibold text-fg">{title}</h2>}
       {children}

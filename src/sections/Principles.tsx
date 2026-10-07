@@ -22,7 +22,7 @@ const MOVES = [
     framework: "TEAM",
     title: "Structure the team right",
     sub: "The right roles, one accountable owner, and the levers to decide.",
-    body: "Product teams should hold the roles, domain knowledge and operational levers needed to make trade-offs across operations and technology, not just to implement requirements handed down to them. A single Ops Manager owns the problem and the outcome, two-in-a-box with a Product Lead, with product, engineering and design expertise inside the squad.",
+    body: "Product teams should hold the roles, domain knowledge and operational levers needed to make trade-offs across operations and technology, not just to implement requirements handed down to them. A single Ops Manager owns the problem and the outcome, two-in-a-box with a Product Lead, with product, engineering and UX expertise inside the squad.",
     to: "team" as const,
   },
   {

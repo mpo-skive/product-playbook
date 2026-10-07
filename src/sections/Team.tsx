@@ -1,12 +1,12 @@
-import { Fragment } from "react";
-import { Crosshair, Scale, Layers3, UserCheck } from "lucide-react";
+import { Fragment, useEffect, useState } from "react";
+import { Layers3 } from "lucide-react";
 import { Callout, Prose, Card, Badge } from "@/components/ui";
-import { Reveal, Disclosure, Tabs } from "@/components/interactive";
+import { Reveal, Disclosure } from "@/components/interactive";
 import { TeamExplorer } from "@/components/widgets/TeamExplorer";
 import { SectionHead, Block, type SectionProps } from "./_shell";
 import { cn } from "@/lib/cn";
 
-const RACI_COLS = ["OM", "Product Manager", "Design", "Engineering", "Programme Management"];
+const RACI_COLS = ["OM", "Product Manager", "UX", "Engineering", "Programme Management"];
 
 const RACI: { phase: string; rows: [string, string, string, string, string, string][] }[] = [
   {
@@ -53,7 +53,7 @@ const RACI: { phase: string; rows: [string, string, string, string, string, stri
     phase: "Governance",
     rows: [
       ["Clear audits and address findings", "A", "I", "I", "I", "R"],
-      ["Ensure compliance with design standards", "I", "\u2014", "A, R", "\u2014", "\u2014"],
+      ["Ensure compliance with UX standards", "I", "\u2014", "A, R", "\u2014", "\u2014"],
       ["Ensure compliance with technical standards", "I", "\u2014", "\u2014", "A, R", "\u2014"],
     ],
   },
@@ -64,29 +64,9 @@ export default function Team(_: SectionProps) {
     <div>
       <SectionHead id="team">
         How a team is structured decides how fast it can move. This principle puts one accountable owner on the
-        problem, surrounds them with just enough expertise and levers, and empowers the team to solve it. It rests on
-        three rules, and the shape scales with complexity.
+        problem, surrounds them with just enough expertise and levers, and empowers the team to solve it. The shape
+        scales with complexity.
       </SectionHead>
-
-      <Block eyebrow="Ground rules" title="Three rules, before any org chart">
-        <div className="grid gap-3 sm:grid-cols-3">
-          {[
-            { icon: UserCheck, t: "Single-line accountability", d: "One person is accountable for moving the metric. Not a committee, not a consensus." },
-            { icon: Scale, t: "Levers, not just requirements", d: "The team holds the ops and tech levers to make trade-offs itself, rather than implementing orders." },
-            { icon: Crosshair, t: "Empowered to solve", d: "It can change the operational approach, the technology, or both, to solve the underlying problem." },
-          ].map((p, i) => (
-            <Reveal key={p.t} delay={i * 0.05}>
-              <Card className="h-full p-5">
-                <div className="mb-2.5 flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle text-accent">
-                  <p.icon className="h-4.5 w-4.5" />
-                </div>
-                <p className="text-sm font-semibold text-fg">{p.t}</p>
-                <p className="mt-1.5 text-sm leading-relaxed text-fg-muted">{p.d}</p>
-              </Card>
-            </Reveal>
-          ))}
-        </div>
-      </Block>
 
       <Block eyebrow="The structure" title="One structure that grows with the product">
         <Prose className="mb-5">
@@ -126,47 +106,6 @@ export default function Team(_: SectionProps) {
         </Callout>
       </Block>
 
-      <Block eyebrow="Lead or Manager" title="The same craft at different seniority">
-        <Prose className="mb-5">
-          <p>
-            Lead and Manager are not different jobs. They are the same craft at different seniority, and this holds for
-            every craft in the team. A Lead sits in the Working Committee, sets direction and standards across squads,
-            and makes the hard trade-offs. A Manager runs delivery inside a squad. Whether you need both tiers depends
-            on the product's scale and complexity.
-          </p>
-        </Prose>
-        <Tabs
-          tabs={[
-            {
-              id: "product",
-              label: "Product",
-              content: <LeadManager lead={["Product Lead", "Owns vision, strategy and roadmap across the product", "Sits in the Working Committee", "Partners the OM in the two-in-a-box"]} manager={["Product Manager", "Owns the backlog and delivery of one squad", "Runs discovery and prioritisation day to day", "Reports into the Product Lead where one exists"]} />,
-            },
-            {
-              id: "eng",
-              label: "Engineering",
-              content: <LeadManager lead={["Tech Lead", "Owns architecture and technical standards across squads", "Sits in the Working Committee", "Makes system design trade-offs"]} manager={["Engineering Manager", "Owns the engineering delivery of one squad", "Runs the team's technical execution", "Reports into the Tech Lead where one exists"]} />,
-            },
-            {
-              id: "design",
-              label: "Design",
-              content: <LeadManager lead={["Design Lead", "Owns the experience and design standards across the product", "Sits in the Working Committee", "Leads research that validates the problem"]} manager={["Designer", "Owns the design work of one squad", "Runs research and design day to day", "Reports into the Design Lead where one exists"]} />,
-            },
-            {
-              id: "programme",
-              label: "Programme",
-              content: <LeadManager lead={["Programme Lead", "Sets up the workstreams that coordinate across teams", "Sits in the Working Committee", "Secures funding, headcount and vendor approvals"]} manager={["Programme Manager", "Owns the programme management of one workstream", "Procures tools and resources, and sets up the dashboards that monitor the metrics", "Reports into the Programme Lead where one exists"]} managerScope="per workstream" />,
-            },
-          ]}
-        />
-        <Callout tone="info" title="A rule of thumb">
-          <p>
-            Early on a product may have only Managers, who also carry the Lead responsibilities. As it grows into
-            multiple squads, Leads appear to hold the line on strategy and standards across them.
-          </p>
-        </Callout>
-      </Block>
-
       <Block eyebrow="Reference" title="Roles at a glance">
         <div className="space-y-3">
           <Disclosure summary="Steering Committee" icon={<Layers3 className="h-4 w-4" />} meta="Oversight">
@@ -178,10 +117,12 @@ export default function Team(_: SectionProps) {
             with the Product Lead. Owns the ops and tech levers. Makes trade-off decisions, defines
             the problem and metric, and directs the product at least fortnightly.
           </Disclosure>
-          <Disclosure summary="Product, Tech, Design and Programme Leads" icon={<Layers3 className="h-4 w-4" />} meta="Working Committee">
+          <Disclosure summary="Product, Tech, UX and Programme Leads" icon={<Layers3 className="h-4 w-4" />} meta="Working Committee">
             Peers in the Working Committee. Each brings the expertise of one craft to a decision and sets the standards
-            for it across squads: product, engineering, design, and the workstreams, funding and procurement that
-            carry them. The Product Lead partners the OM in the two-in-a-box.
+            for it across squads: product, engineering, UX, and the workstreams, funding and procurement that
+            carry them. The Product Lead partners the OM in the two-in-a-box. Each Lead is the senior form of a craft
+            found in the squads: they set direction and standards across squads, while their squad counterparts run
+            delivery within one.
           </Disclosure>
           <Disclosure summary="Programme Management" icon={<Layers3 className="h-4 w-4" />} meta="Across squads">
             Runs the programme: sets up workstreams to coordinate across teams, secures funding, headcount and vendor
@@ -190,12 +131,17 @@ export default function Team(_: SectionProps) {
             Programme Lead in the Working Committee.
           </Disclosure>
           <Disclosure summary="Squad" icon={<Layers3 className="h-4 w-4" />} meta="Delivery">
-            Product Manager, Engineering Manager, Designer and software engineers. Each squad owns a specific
-            sub-problem. May be in-house or vendor-staffed.
+            Product Manager, Engineering Manager, UX and software engineers. Each squad owns a specific
+            sub-problem. May be in-house or vendor-staffed. The Product Manager owns one squad's backlog; the Product
+            Lead owns the roadmap across the product.
           </Disclosure>
         </div>
       </Block>
 
+
+      <Block eyebrow="In DSTA" title="UX practice: UX Architects and UX Designers" id={UX_ANCHOR}>
+        <UXPractice />
+      </Block>
 
       <Block eyebrow="Accountability" title="Who does what, phase by phase">
         <Prose className="mb-4">
@@ -277,26 +223,80 @@ export default function Team(_: SectionProps) {
   );
 }
 
-function LeadManager({ lead, manager, managerScope = "in-squad" }: { lead: string[]; manager: string[]; managerScope?: string }) {
+/* The UX practice note opens itself when something links to it, so a reader
+ * arriving from the glossary lands on the content rather than a closed row. */
+const UX_ANCHOR = "ux-practice-dsta";
+
+const UX_ROLES: { title: string; label: string; lead?: string; points: string[] }[] = [
+  {
+    title: "UX Designer (UXD)",
+    label: "Individual apps",
+    points: [
+      "Needed on every product",
+      "Designs one or more apps and makes each easy to use: its flows, screens and interactions",
+      "Researches and tests with users, and works with the squad's engineers as each app is built",
+    ],
+  },
+  {
+    title: "UX Architect (UXA)",
+    label: "Between apps and touchpoints",
+    lead: "Needed when users must move across several apps or touchpoints to get something done, and the journey is too big for one UXD to hold together. This can be one product made up of several apps, such as a super app, or one end-to-end journey that spans several apps or touchpoints.",
+    points: [
+      "Shapes how users find their way: where they start, how the apps are grouped and navigated, and where each task lives",
+      "Designs the hand-offs between apps, so users move from one to the next without losing their place or re-entering details",
+      "Sets the patterns every app shares, such as alerts, status updates, search, forms, and using the same word for the same thing",
+      "Works with the Tech Lead on build decisions users will feel: signing in once across apps, entering details once and reusing them, receiving notifications in one place and one format, and using shared PRIZM components rather than each squad building its own",
+    ],
+  },
+];
+
+function UXPractice() {
+  const [open, setOpen] = useState(false);
+
+  // A link elsewhere in the playbook points here with ?open=<anchor>, so open
+  // the note and bring it into view once the section has settled.
+  useEffect(() => {
+    const check = () => {
+      const query = window.location.hash.split("?")[1] ?? "";
+      if (!new URLSearchParams(query).getAll("open").includes(UX_ANCHOR)) return;
+      setOpen(true);
+      // Ends the scroll-memory restore, which would otherwise pull the page
+      // back to wherever this section was last left.
+      window.dispatchEvent(new Event("wheel"));
+      window.setTimeout(() => {
+        document.getElementById(UX_ANCHOR)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 360);
+    };
+    check();
+    window.addEventListener("hashchange", check);
+    return () => window.removeEventListener("hashchange", check);
+  }, []);
+
   return (
-    <div className="grid gap-3 sm:grid-cols-2">
-      {[
-        { role: lead, tag: "Lead", tone: "accent" as const },
-        { role: manager, tag: "Manager", tone: "neutral" as const },
-      ].map(({ role, tag, tone }) => (
-        <Card key={tag} className={cn("p-5", tone === "accent" && "border-l-4 border-l-accent")}>
-          <Badge tone={tone === "accent" ? "accent" : "outline"}>{tag === "Lead" ? "Lead · more senior" : `Manager · ${managerScope}`}</Badge>
-          <p className="mt-2.5 text-base font-semibold text-fg">{role[0]}</p>
-          <ul className="mt-2 space-y-1.5 text-sm text-fg-muted">
-            {role.slice(1).map((r) => (
-              <li key={r} className="flex gap-2">
-                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
-                {r}
-              </li>
-            ))}
-          </ul>
-        </Card>
-      ))}
-    </div>
+    <Disclosure
+      summary="DSTA staffs UX with two roles"
+      meta="UXD and UXA"
+      icon={<Layers3 className="h-4 w-4" />}
+      open={open}
+      onOpenChange={setOpen}
+    >
+      <div className="grid gap-3 sm:grid-cols-2">
+        {UX_ROLES.map((r) => (
+          <Card key={r.title} className="p-5">
+            <Badge tone="outline">{r.label}</Badge>
+            <p className="mt-2.5 text-base font-semibold text-fg">{r.title}</p>
+            {r.lead && <p className="mt-2 text-sm leading-relaxed text-fg-muted">{r.lead}</p>}
+            <ul className="mt-2 space-y-1.5 text-sm text-fg-muted">
+              {r.points.map((point) => (
+                <li key={point} className="flex gap-2">
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </Card>
+        ))}
+      </div>
+    </Disclosure>
   );
 }

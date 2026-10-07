@@ -15,7 +15,7 @@ const SCALES: { value: Scale; label: string }[] = [
 ];
 
 const NOTES: Record<Scale, string> = {
-  poc: "Proving it can be built. One squad. The PM, Engineering Manager and Designer also act as the Product, Tech and Design Leads. Follow the principles, not the full form.",
+  poc: "Proving it can be built. One squad. The squad's product, engineering and UX members also act as the Product, Tech and UX Leads. Follow the principles, not the full form.",
   pov: "Proving the metric can move. One accountable OM in a two-in-a-box with a Product Lead, a lean Working Committee, and one to three squads of around eight people each.",
   fsd: "Full scale development, once the value is proven. Multiple sub-products, each with its own squads. A Programme Lead joins the Working Committee to set up the workstreams, funding and procurement that coordinate across them.",
   outsourced: "One in-house squad sets direction and standards, working alongside several vendor squads. Strategic product and tech capability stays in-house, and a Programme Lead runs the vendor approvals and procurement the squads depend on.",
@@ -80,7 +80,7 @@ export function TeamExplorer() {
                   <div className={cn("grid gap-2", showProgramme ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-3")}>
                     <RoleCard icon={UserCog} title="Product Lead" sub="Vision, strategy, roadmap" />
                     <RoleCard icon={UserCog} title="Tech Lead" sub="Architecture and standards" />
-                    <RoleCard icon={UserCog} title="Design Lead" sub="Experience and research" />
+                    <RoleCard icon={UserCog} title="UX Lead" sub="Experience and research" />
                     {showProgramme && (
                       <RoleCard icon={UserCog} title="Programme Lead" sub="Workstreams, funding, procurement" />
                     )}
@@ -122,8 +122,8 @@ export function TeamExplorer() {
                   </div>
                   <p className="text-xs leading-relaxed text-fg-muted">
                     {scale === "poc"
-                      ? "PM, Engineering Manager, Designer, engineers. Also the Leads."
-                      : "Product Manager, Engineering Manager, Designer, software engineers."}
+                      ? "PM, Engineering Manager, UX, engineers. Also the Leads."
+                      : "Product Manager, Engineering Manager, UX, software engineers."}
                   </p>
                 </motion.div>
               ))}

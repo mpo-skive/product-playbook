@@ -69,18 +69,30 @@ export function Disclosure({
   summary,
   meta,
   defaultOpen = false,
+  open: openProp,
+  onOpenChange,
   children,
   icon,
 }: {
   summary: ReactNode;
   meta?: ReactNode;
   defaultOpen?: boolean;
+  /** Controlled open state. Omit to let the disclosure manage its own. */
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
   children: ReactNode;
   icon?: ReactNode;
 }) {
   const staticMode = isStaticRender();
-  const [open, setOpen] = useState(defaultOpen || staticMode);
+  const [uncontrolled, setUncontrolled] = useState(defaultOpen || staticMode);
+  const open = openProp ?? uncontrolled;
   const id = useId();
+
+  function toggle() {
+    const next = !open;
+    setUncontrolled(next);
+    onOpenChange?.(next);
+  }
 
   const body = (
     <div className="border-t border-border px-4 py-4 text-sm leading-relaxed text-fg-muted sm:px-5">{children}</div>
@@ -92,7 +104,7 @@ export function Disclosure({
         type="button"
         aria-expanded={open}
         aria-controls={id}
-        onClick={() => setOpen((o) => !o)}
+        onClick={toggle}
         className="flex w-full items-center gap-3 px-4 py-3.5 text-left transition-colors hover:bg-bg-muted sm:px-5"
       >
         {icon && <span className="shrink-0 text-accent">{icon}</span>}

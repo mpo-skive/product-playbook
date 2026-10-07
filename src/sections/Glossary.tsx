@@ -3,7 +3,10 @@ import { Search } from "lucide-react";
 import { Prose, Card, Badge } from "@/components/ui";
 import { SectionHead, Block, type SectionProps } from "./_shell";
 
-const TERMS: [string, string][] = [
+/* A third entry links the term to the place in the playbook that explains it.
+ * Hash routing keeps the section in the path, so the target is carried as a
+ * query the destination reads, not as a bare fragment. */
+const TERMS: [string, string, string?][] = [
   ["4C", "The test of a good problem statement: Clarity, Consequence, Cause, Confirmation."],
   ["6W", "The six questions a problem statement should answer: what, where, when, who, why it happens, why it matters."],
   ["C2", "Command and control."],
@@ -31,7 +34,7 @@ const TERMS: [string, string][] = [
   ["Proof of value (PoV)", "The second stage: proving the value metric can actually move."],
   ["RACI", "Who is Responsible, Accountable, Consulted and Informed for each activity in a product team."],
   ["SFR", "The prioritisation test for problem statements: Severity, Frequency, Reach, each scored low, medium or high."],
-  ["Squad", "The delivery team: PM, Engineering Manager, Designer and engineers."],
+  ["Squad", "The delivery team: PM, Engineering Manager, UX and engineers."],
   ["SMART", "The test of a value metric: specific, measurable, achievable, relevant, time-bound."],
   ["Steering Committee", "The oversight body that holds the OM accountable, vests the levers and clears blockers."],
   ["Strangler fig", "A gradual modernisation strategy that replaces a system piece by piece."],
@@ -39,14 +42,24 @@ const TERMS: [string, string][] = [
   ["TEST", "The testing framework: Trial with real operators, Expose the riskiest assumption, Shorten the loop, Turn tests into decisions."],
   ["Theory of change", "The causal chain from what you build to the outcome you seek."],
   ["Two-in-a-box", "The joint OM and Product Lead ownership pairing."],
+  [
+    "UX Architect (UXA)",
+    "In DSTA, the UX role that designs between apps: how users move across several apps or touchpoints, and the patterns they share; works with the Tech Lead.",
+    "ux-practice-dsta",
+  ],
   ["Value metric", "A leading indicator that directly measures the outcome of solving the problem."],
   ["Value-Cost Ratio", "Outcome delivered per dollar spent; its year-on-year change is the key signal."],
   ["Working Committee", "The body that runs the product: the OM and Product Lead two-in-a-box, plus the Leads."],
 ];
 
-export default function Glossary(_: SectionProps) {
+export default function Glossary({ navigate }: SectionProps) {
   const [q, setQ] = useState("");
   const filtered = TERMS.filter(([t, d]) => (t + d).toLowerCase().includes(q.toLowerCase()));
+
+  function open(anchor: string) {
+    navigate("team");
+    window.location.hash = `/team?open=${anchor}`;
+  }
 
   return (
     <div>
@@ -65,9 +78,22 @@ export default function Glossary(_: SectionProps) {
           />
         </div>
         <div className="grid gap-2.5 sm:grid-cols-2">
-          {filtered.map(([t, d]) => (
+          {filtered.map(([t, d, anchor]) => (
             <div key={t} className="rounded-lg border border-border bg-surface p-3.5">
-              <p className="text-sm font-semibold text-fg">{t}</p>
+              {anchor ? (
+                <a
+                  href={`#${anchor}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    open(anchor);
+                  }}
+                  className="text-sm font-semibold text-accent underline underline-offset-2 hover:text-accent-hover"
+                >
+                  {t}
+                </a>
+              ) : (
+                <p className="text-sm font-semibold text-fg">{t}</p>
+              )}
               <p className="mt-0.5 text-sm leading-relaxed text-fg-muted">{d}</p>
             </div>
           ))}
