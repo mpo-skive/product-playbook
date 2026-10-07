@@ -240,12 +240,12 @@ const UX_ROLES: { title: string; label: string; lead?: string; points: string[] 
   {
     title: "UX Architect (UXA)",
     label: "Between apps and touchpoints",
-    lead: "Needed when users must move across several apps or touchpoints to get something done, and the journey is too big for one UXD to hold together. This can be one product made up of several apps, such as a super app, or one end-to-end journey that spans several apps or touchpoints.",
+    lead: "Needed when users must move across several apps or touchpoints to get something done. This can be one product made up of several apps, such as a super app, or one end-to-end journey that spans several apps or touchpoints.",
     points: [
       "Shapes how users find their way: where they start, how the apps are grouped and navigated, and where each task lives",
-      "Designs the hand-offs between apps, so users move from one to the next without losing their place or re-entering details",
+      "Designs the hand-offs between apps, so users move from one to the next without losing context",
       "Sets the patterns every app shares, such as alerts, status updates, search, forms, and using the same word for the same thing",
-      "Works with the Tech Lead on build decisions users will feel: signing in once across apps, entering details once and reusing them, receiving notifications in one place and one format, and using shared PRIZM components rather than each squad building its own",
+      "Works with the Tech Lead on build decisions users will feel: signing in once across apps, entering details once and reusing them, receiving notifications in one place and one format, and using shared PRIZM components",
     ],
   },
 ];
