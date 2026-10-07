@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { Layers3 } from "lucide-react";
-import { Callout, Prose, Card, Badge } from "@/components/ui";
+import { Prose, Card, Badge } from "@/components/ui";
 import { Reveal, Disclosure } from "@/components/interactive";
 import { TeamExplorer } from "@/components/widgets/TeamExplorer";
 import { SectionHead, Block, type SectionProps } from "./_shell";
@@ -72,26 +72,18 @@ export default function Team(_: SectionProps) {
         </Reveal>
       </Block>
 
-      <Block eyebrow="Ops Manager" title="One accountable owner, two-in-a-box with a Product Lead">
+      <Block eyebrow="Ops Manager" title="One accountable owner">
         <Prose>
           <p>
             The OM is the operational owner: the equivalent of a Product Owner, accountable for the outcome.
           </p>
           <p>
-            The OM sits <strong>two-in-a-box with a Product Lead</strong>. The OM brings deep operational judgement and
-            owns the levers. The Product Lead brings product and engineering expertise: able to read the codebase,
-            weigh system design trade-offs, and turn intent into a roadmap. Together they make joint decisions. It is a
-            partnership of equals, not a reporting line. The pair sits inside the Working Committee, not in a tier of its
-            own above it.
+            The OM sits <strong>inside the Working Committee</strong> with the Leads, not in a tier of its own above
+            them. The OM brings deep operational judgement and owns the levers. Each Lead brings the judgement of one
+            craft: the Product Lead reads the codebase, weighs system design trade-offs, and turns intent into a
+            roadmap. The OM decides.
           </p>
         </Prose>
-        <Callout tone="accent" title="When one is enough">
-          <p>
-            Where the problem does not need distinct operational and product judgement held by two people, a capable
-            OM who also carries product depth can own it alone. The two-in-a-box is also a useful transition: an OM
-            builds product fluency alongside a Product Lead, then takes sole ownership once ready.
-          </p>
-        </Callout>
       </Block>
 
       <Block eyebrow="Reference" title="Roles at a glance">
@@ -101,16 +93,15 @@ export default function Team(_: SectionProps) {
             clearing blockers. Makes trade-offs where other priorities have dependencies.
           </Disclosure>
           <Disclosure summary="Ops Manager (OM)" icon={<Layers3 className="h-4 w-4" />} meta="Working Committee">
-            Accountable to the Steering Committee for the outcome. Sits in the Working Committee, in a two-in-a-box
-            with the Product Lead. Owns the ops and tech levers. Makes trade-off decisions, defines
-            the problem and metric, and directs the product at least fortnightly.
+            Accountable to the Steering Committee for the outcome. Sits in the Working Committee with the Leads.
+            Owns the ops and tech levers. Makes trade-off decisions, defines the problem and metric, and directs the
+            product at least fortnightly.
           </Disclosure>
           <Disclosure summary="Product, Tech, UX and Programme Leads" icon={<Layers3 className="h-4 w-4" />} meta="Working Committee">
             Peers in the Working Committee. Each brings the expertise of one craft to a decision and sets the standards
             for it across squads: product, engineering, UX, and the workstreams, funding and procurement that
-            carry them. The Product Lead partners the OM in the two-in-a-box. Each Lead is the senior form of a craft
-            found in the squads: they set direction and standards across squads, while their squad counterparts run
-            delivery within one.
+            carry them. Each Lead is the senior form of a craft found in the squads: they set direction and standards
+            across squads, while their squad counterparts run delivery within one.
           </Disclosure>
           <Disclosure summary="Programme Management" icon={<Layers3 className="h-4 w-4" />} meta="Across squads">
             Runs the programme: sets up workstreams to coordinate across teams, secures funding, headcount and vendor

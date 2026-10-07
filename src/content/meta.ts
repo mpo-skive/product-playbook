@@ -85,7 +85,7 @@ export const SECTIONS: SectionMeta[] = [
     kicker: "Principle 02",
     icon: Users,
     readMins: 11,
-    blurb: "Single-line accountability, the two-in-a-box OM, squads that scale, and a RACI for who decides what.",
+    blurb: "Single-line accountability, the Leads who run the product, squads that scale, and a RACI for who decides what.",
     framework: "TEAM",
   },
   {
@@ -177,7 +177,7 @@ export const PERSONAS: PersonaMeta[] = [
     label: "Ops Manager (OM)",
     role: "Product Owner, accountable for the outcome",
     summary:
-      "You own the problem and the metric, in a two-in-a-box with your Product Lead. You need to define the problem, run the team, test and prepare for review.",
+      "You own the problem and the metric. You need to define the problem, run the team, test and prepare for review.",
     path: ["why", "problems", "team", "test", "govern", "tools", "principles", "modernise", "start"],
     core: ["why", "problems", "team", "test", "govern"],
   },

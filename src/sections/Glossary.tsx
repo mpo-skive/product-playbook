@@ -24,7 +24,7 @@ const TERMS: [string, string, string?][] = [
   ["OM", "Ops Manager. The accountable operational owner of a product's outcome."],
   ["OTI", "Ops-Tech Integration. Operations and technology aimed at one outcome."],
   ["PRIZM", "DSTA's AI-ingestible design system. This playbook is built on it."],
-  ["Product Lead", "The senior product role in the Working Committee; partners the OM two-in-a-box."],
+  ["Product Lead", "The senior product role in the Working Committee; owns vision, strategy and roadmap across the product."],
   ["Product Manager", "The product role running delivery inside a squad."],
   ["Programme Lead", "The senior programme role in the Working Committee; a peer of the Product, Tech and UX Leads."],
   ["Programme Management", "The function that coordinates delivery across the squads of a product: workstreams, funding, procurement, dashboards and user support."],
@@ -41,7 +41,6 @@ const TERMS: [string, string, string?][] = [
   ["TEAM", "The team principle, and the first-steps mnemonic: Target, Evaluate, Assemble, Mobilise."],
   ["TEST", "The testing framework: Trial with real operators, Expose the riskiest assumption, Shorten the loop, Turn tests into decisions."],
   ["Theory of change", "The causal chain from what you build to the outcome you seek."],
-  ["Two-in-a-box", "The joint OM and Product Lead ownership pairing."],
   [
     "UX Architect (UXA)",
     "In DSTA, the UX role that designs between apps: how users move across several apps or touchpoints, and the patterns they share; works with the Tech Lead.",
@@ -49,7 +48,7 @@ const TERMS: [string, string, string?][] = [
   ],
   ["Value metric", "A leading indicator that directly measures the outcome of solving the problem."],
   ["Value-Cost Ratio", "Outcome delivered per dollar spent; its year-on-year change is the key signal."],
-  ["Working Committee", "The body that runs the product: the OM and Product Lead two-in-a-box, plus the Leads."],
+  ["Working Committee", "The body that runs the product: the OM, with the Product, Tech, UX and Programme Leads."],
 ];
 
 export default function Glossary({ navigate }: SectionProps) {
