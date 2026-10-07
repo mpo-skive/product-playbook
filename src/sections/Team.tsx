@@ -85,9 +85,7 @@ export default function Team(_: SectionProps) {
       <Block eyebrow="Ops Manager" title="One accountable owner, two-in-a-box with a Product Lead">
         <Prose>
           <p>
-            The accountable owner is often called a Business Owner, sometimes paired with a separate policy lead. To keep
-            accountability single, we <strong>fold that remit into the Ops Manager</strong> rather than split it out. The
-            OM is the operational owner: the equivalent of a Product Owner, accountable for the outcome.
+            The OM is the operational owner: the equivalent of a Product Owner, accountable for the outcome.
           </p>
           <p>
             The OM sits <strong>two-in-a-box with a Product Lead</strong>. The OM brings deep operational judgement and
