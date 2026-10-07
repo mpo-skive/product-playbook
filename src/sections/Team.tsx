@@ -227,15 +227,18 @@ export default function Team(_: SectionProps) {
  * arriving from the glossary lands on the content rather than a closed row. */
 const UX_ANCHOR = "ux-practice-dsta";
 
-const UX_ROLES: { title: string; label: string; lead?: string; points: string[] }[] = [
+const UX_ROLES: { title: string; label: string; lead: string; points: string[]; measures: string }[] = [
   {
     title: "UX Designer (UXD)",
     label: "Individual apps",
+    lead: "Needed on every product. Sits in the squad that builds the app, from the first sketch to what ships, and stays with it as it changes.",
     points: [
-      "Needed on every product",
       "Designs one or more apps and makes each easy to use: its flows, screens and interactions",
-      "Researches and tests with users, and works with the squad's engineers as each app is built",
+      "Researches with users to understand the task, and tests the design with them before it is built",
+      "Works with the squad's engineers as each app is built, so what ships is what was tested",
+      "Applies the shared PRIZM components and patterns, and keeps the app usable for everyone who has to use it",
     ],
+    measures: "The app: whether users complete its critical tasks, how long it takes them, and where they fail or ask for help.",
   },
   {
     title: "UX Architect (UXA)",
@@ -247,6 +250,7 @@ const UX_ROLES: { title: string; label: string; lead?: string; points: string[] 
       "Sets the patterns every app shares, such as alerts, status updates, search, forms, and using the same word for the same thing",
       "Works with the Tech Lead on build decisions users will feel: signing in once across apps, entering details once and reusing them, receiving notifications in one place and one format, and using shared PRIZM components",
     ],
+    measures: "The journey across apps: whether it completes end to end, where users drop out at the hand-offs, and how often they sign in again or re-enter what the system already holds.",
   },
 ];
 
@@ -282,11 +286,11 @@ function UXPractice() {
     >
       <div className="grid gap-3 sm:grid-cols-2">
         {UX_ROLES.map((r) => (
-          <Card key={r.title} className="p-5">
+          <Card key={r.title} className="flex h-full flex-col p-5">
             <Badge tone="outline">{r.label}</Badge>
             <p className="mt-2.5 text-base font-semibold text-fg">{r.title}</p>
-            {r.lead && <p className="mt-2 text-sm leading-relaxed text-fg-muted">{r.lead}</p>}
-            <ul className="mt-2 space-y-1.5 text-sm text-fg-muted">
+            <p className="mt-2 text-sm leading-relaxed text-fg-muted">{r.lead}</p>
+            <ul className="mb-4 mt-2 space-y-1.5 text-sm text-fg-muted">
               {r.points.map((point) => (
                 <li key={point} className="flex gap-2">
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
@@ -294,6 +298,10 @@ function UXPractice() {
                 </li>
               ))}
             </ul>
+            <div className="mt-auto border-t border-border pt-3.5">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Measures</p>
+              <p className="mt-1 text-sm leading-relaxed text-fg-muted">{r.measures}</p>
+            </div>
           </Card>
         ))}
       </div>
