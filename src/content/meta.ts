@@ -184,7 +184,7 @@ export const PERSONAS: PersonaMeta[] = [
   {
     id: "practitioner",
     label: "Product, Engineering or Design",
-    role: "PM, Engineering Manager, Designer or a Lead",
+    role: "PM, Engineering Manager, UX or a Lead",
     summary:
       "You do the work inside the squad. You need the three principles, how value is measured, how to test, and the toolchain that carries it.",
     path: ["why", "principles", "problems", "test", "tools", "team", "modernise", "govern", "start"],

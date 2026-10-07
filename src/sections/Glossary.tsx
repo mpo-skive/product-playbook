@@ -26,7 +26,7 @@ const TERMS: [string, string, string?][] = [
   ["PRIZM", "DSTA's AI-ingestible design system. This playbook is built on it."],
   ["Product Lead", "The senior product role in the Working Committee; partners the OM two-in-a-box."],
   ["Product Manager", "The product role running delivery inside a squad."],
-  ["Programme Lead", "The senior programme role in the Working Committee; a peer of the Product, Tech and Design Leads."],
+  ["Programme Lead", "The senior programme role in the Working Committee; a peer of the Product, Tech and UX Leads."],
   ["Programme Management", "The function that coordinates delivery across the squads of a product: workstreams, funding, procurement, dashboards and user support."],
   ["Programme Manager", "The programme role running procurement, dashboards and user support for one workstream."],
   ["ProductOps Pipeline (enterprise)", "DSTA's organisation-wide product capability, standards and toolchain."],
