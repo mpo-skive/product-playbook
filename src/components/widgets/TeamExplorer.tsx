@@ -16,7 +16,7 @@ const SCALES: { value: Scale; label: string }[] = [
 
 const NOTES: Record<Scale, string> = {
   poc: "Starts off with one squad to prove that the product is technically feasible. The squad's product, UX and engineering members also act as the Product, UX and Tech Leads.",
-  pov: "Proving the metric can move. Prioritise the few features the MVP needs to shift it, then add a squad for each so they are built in parallel rather than queued behind one another.",
+  pov: "Proving the metric can move. Prioritise the few features the MVP needs to shift it, then add a squad for each.",
   fsd: "Full scale development, once the value is proven. Multiple sub-products, each with its own squads.",
   outsourced: "One in-house squad sets direction and standards, working alongside several vendor squads.",
 };

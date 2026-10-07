@@ -73,15 +73,20 @@ export default function Team(_: SectionProps) {
       </Block>
 
       <Block eyebrow="Ops Manager" title="One accountable owner">
-        <Prose>
-          <p>
-            The OM is the operational owner: the equivalent of a Product Owner, accountable for the outcome.
-          </p>
-          <p>
-            The OM sits <strong>inside the Working Committee</strong> with the Leads. The OM brings deep operational
-            judgement.
-          </p>
-        </Prose>
+        <Card className="p-5">
+          <ul className="space-y-2.5 text-sm text-fg-muted">
+            {[
+              "The operational owner: the equivalent of a Product Owner, accountable for the outcome",
+              "Sits inside the Working Committee with the Leads",
+              "Brings deep operational judgement",
+            ].map((item) => (
+              <li key={item} className="flex gap-2.5">
+                <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Card>
       </Block>
 
       <Block eyebrow="In DSTA" title="UX practice: UX Architects and UX Designers" id={UX_ANCHOR}>
@@ -172,7 +177,7 @@ export default function Team(_: SectionProps) {
  * arriving from the glossary lands on the content rather than a closed row. */
 const UX_ANCHOR = "ux-practice-dsta";
 
-const UX_ROLES: { title: string; label: string; lead: string; points: string[]; measures: string }[] = [
+const UX_ROLES: { title: string; label: string; lead: string; points: string[] }[] = [
   {
     title: "UX Designer (UXD)",
     label: "Individual apps",
@@ -183,7 +188,6 @@ const UX_ROLES: { title: string; label: string; lead: string; points: string[]; 
       "Works with the squad's engineers as each app is built to ensure that shipped product matches intended design",
       "Applies the shared PRIZM components and patterns, and ensures that the app meets its intended purpose and is easy to use for users",
     ],
-    measures: "The app: whether users complete its critical tasks, how long it takes them, and where they fail or ask for help. The UXD runs a System Usability Scale (SUS) score on each app after release, with Programme Management setting up the collection in DASH.",
   },
   {
     title: "UX Architect (UXA)",
@@ -195,7 +199,6 @@ const UX_ROLES: { title: string; label: string; lead: string; points: string[]; 
       "Sets the patterns every app shares, such as alerts, status updates, search, forms, and using the same word for the same thing",
       "Works with the Tech Lead on build decisions users will feel: signing in once across apps, entering details once and reusing them, receiving notifications in one place and one format, and using shared PRIZM components",
     ],
-    measures: "The journey across apps: whether it completes end to end, where users drop out at the hand-offs, and how often they sign in again or re-enter what the system already holds. The UXA runs a Customer Satisfaction (CSAT) score at the end of the journey rather than per app, with Programme Management setting up the collection in DASH.",
   },
 ];
 
@@ -231,11 +234,11 @@ function UXPractice() {
     >
       <div className="grid gap-3 sm:grid-cols-2">
         {UX_ROLES.map((r) => (
-          <Card key={r.title} className="flex h-full flex-col p-5">
+          <Card key={r.title} className="p-5">
             <Badge tone="outline">{r.label}</Badge>
             <p className="mt-2.5 text-base font-semibold text-fg">{r.title}</p>
             <p className="mt-2 text-sm leading-relaxed text-fg-muted">{r.lead}</p>
-            <ul className="mb-4 mt-2 space-y-1.5 text-sm text-fg-muted">
+            <ul className="mt-2 space-y-1.5 text-sm text-fg-muted">
               {r.points.map((point) => (
                 <li key={point} className="flex gap-2">
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" />
@@ -243,10 +246,6 @@ function UXPractice() {
                 </li>
               ))}
             </ul>
-            <div className="mt-auto border-t border-border pt-3.5">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Measures</p>
-              <p className="mt-1 text-sm leading-relaxed text-fg-muted">{r.measures}</p>
-            </div>
           </Card>
         ))}
       </div>
