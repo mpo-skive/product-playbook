@@ -63,9 +63,7 @@ export default function Team(_: SectionProps) {
   return (
     <div>
       <SectionHead id="team">
-        How a team is structured decides how fast it can move. This principle puts one accountable owner on the
-        problem, surrounds them with just enough expertise and levers, and empowers the team to solve it. The shape
-        scales with complexity.
+        How a team is structured decides how fast it can move.
       </SectionHead>
 
       <Block eyebrow="The structure" title="One structure that grows with the product">
